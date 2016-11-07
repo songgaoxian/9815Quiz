@@ -164,7 +164,7 @@ std::vector<T> QuickSort2(std::vector<T> unsorted){
 
 int main(){
 	std::vector<int> unsorted{1,5,2,7,4,9,10,-9,99};
-	std::vector<int> result=QuickSort<int>(unsorted);
+	std::vector<int> result=QuickSort2<int>(unsorted);
 	//print out sorting result
 	for(int i=0;i<result.size();++i) std::cout<<result[i]<<", ";
 	std::cout<<"\n";
