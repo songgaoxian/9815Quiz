@@ -1,7 +1,7 @@
 #include "Binary_Search_Tree.hpp"
 #include "Heap.hpp"
 #include <algorithm>
-
+/*
 template<typename T>
 std::vector<T> HeapSort(const std::vector<T>& unsorted){
 	std::vector<T> result;
@@ -95,7 +95,7 @@ std::vector<T> MergeSort2(std::vector<T> unsorted){
     }
     return result;
 }
-
+*/
 template<typename T>
 std::vector<T> QuickSort(std::vector<T> unsorted){
 	int maxLength=unsorted.size();
@@ -163,32 +163,18 @@ std::vector<T> QuickSort2(std::vector<T> unsorted){
 
 
 int main(){
-	/*BinarySearchTree<double> bst(1.2);
-	Node<double> node1(0.8);
-	Node<double> node2(1.9);
-	Node<double> node3(0.7);
-	Node<double> node4(1.0);
-	Node<double> node5(1.8);
-	bst.Insert(&node1);
-	bst.Insert(&node2);
-	bst.Insert(&node3);
-	bst.Insert(&node4);
-	bst.Insert(&node5);
-	bst.Print();
-	bst.Delete();
-	bst.Delete();
-	std::cout<<"\nPrint out Again\n";
-	bst.Print();*/
-	std::vector<double> r1{2.4,5.5,1.1,3.9,9.9,0.8,5.3,0.1};
-	std::vector<double> result=MergeSort2<double>(r1);
-	for(int i=0;i<result.size();++i){
-		std::cout<<result[i]<<", ";
-	}
-	/*std::cout<<"\n";
-	result=QuickSort2<double>(r1);
-	for(int i=0;i<result.size();++i){
-		std::cout<<result[i]<<", ";
-	}
-	std::cout<<"\n";*/
+	std::vector<int> unsorted{1,5,2,7,4,9,10,-9,99};
+	std::vector<int> result=QuickSort<int>(unsorted);
+	//print out sorting result
+	for(int i=0;i<result.size();++i) std::cout<<result[i]<<", ";
+	std::cout<<"\n";
+    //Heap
+    MaxHeap<int> heap(2);
+    heap.Add(4);
+    heap.Add(8);
+    heap.Add(14);
+    //print out and remove
+    while(!heap.IsEmpty()){std::cout<<heap.Remove()<<", ";}
+    std::cout<<"\n";
 	return 0;
 }

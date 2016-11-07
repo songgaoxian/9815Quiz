@@ -1,14 +1,14 @@
 #include <vector>
 
 template<typename T>
-class Heap{
+class MaxHeap{
 private:
 	std::vector<T> elements;
 	int size;
 public:
-	Heap(T val):size(1){elements.push_back(val);}
+	MaxHeap(T val):size(1){elements.push_back(val);}
 	int GetSize() const {return size;}
-    void Enqueue(T value){
+    void Add(T value){
     	++size;
     	elements.push_back(value);
     	int i=size-1;
@@ -22,10 +22,8 @@ public:
     			i=parent;
     		}
     	}
-    	for(int i=0;i<size;++i) std::cout<<elements[i]<<", ";
-    	std::cout<<"\nEnd Of Enqueue\n";
     }
-    T Dequeue(){
+    T Remove(){
     	T result=elements[0];
     	if(size==2){elements[0]=elements[1];}
     	int i=1;
@@ -45,8 +43,6 @@ public:
         elements[parent]=elements[i];
     	--size;
     	elements.pop_back();
-    	for(int i=0;i<size;++i) std::cout<<elements[i]<<", ";
-    	std::cout<<"\nEnd of Dequeue\n";
         return result;
     }
     bool IsEmpty(){return size==0;}
